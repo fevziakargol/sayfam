@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmet Fevzi Akargöl | Uzay Mühendisi Adayı</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; 
+            color: #1e293b; 
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e0e7ff; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4f46e5; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4338ca; 
+        }
+        
+        .hero-section-with-bg {
+            background-image: url('https://raw.githubusercontent.com/fevziakargol/sayfam/main/Anafoto.jpg');
+            background-size: cover;
+            background-position: center top; 
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(49, 46, 129, 0.75); 
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative; 
+            z-index: 2;
+        }
+
+        .yildizli-gokyuzu-bg {
+            background-image: url('https://raw.githubusercontent.com/fevziakargol/sayfam/main/y%C4%B1ld%C4%B1zl%C4%B1g%C3%B6k.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; 
+            position: relative;
+            color: #e2e8f0; 
+        }
+        .yildizli-gokyuzu-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(15, 23, 42, 0.75); 
+            z-index: 0; 
+        }
+        .yildizli-gokyuzu-bg .container { 
+            position: relative;
+            z-index: 1;
+        }
+        .yildizli-gokyuzu-bg .section-title {
+            color: #93c5fd; 
+        }
+         .yildizli-gokyuzu-bg .subsection-title { 
+            color: #a5b4fc; 
+        }
+        .yildizli-gokyuzu-bg .text-content-on-starry { 
+            color: #d1d5db; 
+        }
+        .yildizli-gokyuzu-bg .hakkimda-highlight-box { 
+            background-color: rgba(255, 255, 255, 0.1); 
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+         .yildizli-gokyuzu-bg .hakkimda-highlight-box h3 {
+            color: #c7d2fe; 
+         }
+         .yildizli-gokyuzu-bg .hakkimda-highlight-box p, 
+         .yildizli-gokyuzu-bg .hakkimda-highlight-box strong {
+            color: #e5e7eb; 
+         }
+
+        .content-card { 
+            background-color: #ffffff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border-radius: 0.5rem; 
+            overflow: hidden; 
+            color: #1e293b; 
+        }
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .content-card img.card-image { 
+            width: 100%;
+            height: 14rem; 
+            object-fit: cover; 
+            background-color: #e0e7ff; 
+        }
+        .content-card .card-content { 
+            padding: 1.5rem; 
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; 
+        }
+        .content-card .card-description { 
+            transition: max-height 0.5s ease-in-out;
+            color: #374151; 
+        }
+         .content-card .card-content h3 { 
+            color: #4338ca; 
+        }
+        
+        #sertifikalarim .content-card h3 {
+             color: #4338ca !important; 
+        }
+        #sertifikalarim .content-card .btn-outline {
+            color: #4f46e5 !important; 
+            background-color: #eef2ff; 
+            border-color: #6366f1; 
+        }
+        #sertifikalarim .content-card .btn-outline:hover {
+            color: #3730a3 !important; 
+            background-color: #e0e7ff; 
+            border-color: #4f46e5; 
+        }
+        .certification-title-container { /* Sertifika başlığı ve simgesi için */
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+            margin-bottom: 0.5rem; /* mb-2 */
+        }
+        .certification-title-container .cert-symbol { /* Sertifika simgeleri için yeni sınıf */
+            height: 1.5rem; /* h-6 */
+            width: auto; /* En-boy oranını koru */
+            margin-left: 0.5rem; /* ml-2 */
+            object-fit: contain;
+        }
+
+
+        .skill-tag {
+            background-color: #e0e7ff; 
+            color: #3730a3; 
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .skill-tag:hover {
+            background-color: #4f46e5; 
+            color: #ffffff;
+        }
+        .btn { 
+            display: inline-block;
+            padding: 0.75rem 1.5rem; 
+            border-radius: 0.375rem; 
+            font-weight: 600; 
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            text-align: center;
+            line-height: 1.25rem; 
+        }
+        .btn-primary {
+            background-color: #4f46e5; 
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #4338ca; 
+        }
+        .btn-secondary { 
+            background-color: rgba(255, 255, 255, 0.1); 
+            border: 2px solid #a5b4fc; 
+            color: #e0e7ff; 
+        }
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-color: #ffffff; 
+            color: #ffffff; 
+        }
+        
+        .btn-outline { 
+            border: 1px solid #6366f1; 
+            color: #4f46e5; 
+            background-color: #eef2ff; 
+            padding: 0.5rem 1rem; 
+            font-size: 0.875rem; 
+            font-weight: 500; 
+        }
+        .btn-outline:hover {
+            background-color: #e0e7ff; 
+            border-color: #4f46e5; 
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #a5b4fc; 
+        }
+        .contact-icon {
+            transition: color 0.3s ease;
+            color: #9ca3af; 
+        }
+        .contact-icon:hover {
+            color: #e0e7ff; 
+        }
+        .small-project-images img {
+            border: 1px solid #4b5563; 
+            padding: 0.25rem; 
+            background-color: #f9fafb; 
+            height: 6rem; 
+            object-fit: contain; 
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-indigo-800 bg-opacity-80 backdrop-blur-md text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="#" class="text-2xl font-bold mr-6">Ahmet Fevzi Akargöl</a>
+                <div class="hidden md:flex space-x-2">
+                    <button id="lang-en" class="text-sm px-3 py-1 rounded-md hover:bg-indigo-700 transition-colors">English</button>
+                    <button id="lang-tr" class="text-sm px-3 py-1 rounded-md bg-indigo-700 transition-colors">Türkçe</button>
+                </div>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#hakkimda" class="nav-link" data-lang-tr="Hakkımda" data-lang-en="About Me">Hakkımda</a>
+                <a href="#deneyimlerim" class="nav-link" data-lang-tr="Deneyimlerim" data-lang-en="Experience">Deneyimlerim</a>
+                <a href="#projelerim" class="nav-link" data-lang-tr="Projelerim" data-lang-en="Projects">Projelerim</a>
+                <a href="#becerilerim" class="nav-link" data-lang-tr="Yetenek ve Becerilerim" data-lang-en="Skills">Yetenek ve Becerilerim</a>
+                <a href="#sertifikalarim" class="nav-link" data-lang-tr="Sertifikalarım" data-lang-en="Certifications">Sertifikalarım</a>
+                <a href="#iletisim" class="nav-link" data-lang-tr="İletişim" data-lang-en="Contact">İletişim</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-indigo-700 bg-opacity-90">
+            <a href="#hakkimda" class="block py-2 px-4 text-sm hover:bg-indigo-600" data-lang-tr="Hakkımda" data-lang-en="About Me">Hakkımda</a>
+            <a href="#deneyimlerim" class="block py-2 px-4 text-sm hover:bg-indigo-600" data-lang-tr="Deneyimlerim" data-lang-en="Experience">Deneyimlerim</a>
+            <a href="#projelerim" class="block py-2 px-4 text-sm hover:bg-indigo-600" data-lang-tr="Projelerim" data-lang-en="Projects">Projelerim</a>
+            <a href="#becerilerim" class="block py-2 px-4 text-sm hover:bg-indigo-600" data-lang-tr="Yetenek ve Becerilerim" data-lang-en="Skills">Yetenek ve Becerilerim</a>
+            <a href="#sertifikalarim" class="block py-2 px-4 text-sm hover:bg-indigo-600" data-lang-tr="Sertifikalarım" data-lang-en="Certifications">Sertifikalarım</a>
+            <a href="#iletisim" class="block py-2 px-4 text-sm hover:bg-indigo-600" data-lang-tr="İletişim" data-lang-en="Contact">İletişim</a>
+            <div class="py-2 px-4 flex space-x-2">
+                <button id="mobile-lang-en" class="text-xs px-2 py-1 rounded-md hover:bg-indigo-500 transition-colors border border-indigo-400">English</button>
+                <button id="mobile-lang-tr" class="text-xs px-2 py-1 rounded-md bg-indigo-500 transition-colors border border-indigo-400">Türkçe</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="anasayfa" class="hero-section-with-bg text-white py-32 md:py-48 min-h-screen flex items-center justify-center">
+            <div class="hero-overlay"></div>
+            <div class="hero-content container mx-auto px-6 text-center">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6" data-lang-tr="Ahmet Fevzi Akargöl" data-lang-en="Ahmet Fevzi Akargöl">Ahmet Fevzi Akargöl</h1>
+                <p class="text-2xl md:text-3xl mb-8 font-light" data-lang-tr="Uzay Tutkunu & Geleceğin Yenilikçi Mühendisi" data-lang-en="Space Enthusiast & Future Innovator Engineer">Uzay Tutkunu & Geleceğin Yenilikçi Mühendisi</p>
+                <p class="max-w-3xl mx-auto text-lg md:text-xl text-indigo-100 mb-12 leading-relaxed" 
+                   data-lang-tr="Uzay mühendisliğine olan derin tutkum, beni uydu sistemleri, itki teknolojileri ve yenilikçi görev tasarımları alanlarında sürekli öğrenmeye ve kendimi geliştirmeye itiyor. Hedefim, bu heyecan verici sektörde fark yaratan projelere imza atmaktır. Mevcut analitik düşünme, problem çözme ve hızlı öğrenme yeteneklerimi, gelecekteki zorlu mühendislik problemlerine yenilikçi çözümler getirmek ve uzay teknolojilerinin sınırlarını zorlamak için bir temel olarak görüyorum. İstanbul Teknik Üniversitesi Uzay Mühendisliği'nden Temmuz 2025'te mezun olacak olmam, bu tutkumu profesyonel bir kariyere dönüştürmek ve hayallerimdeki projelere katkıda bulunmak için sabırsızlandığım yeni bir başlangıç anlamına geliyor." 
+                   data-lang-en="My deep passion for space engineering drives me to continuously learn and improve in the fields of satellite systems, propulsion technologies, and innovative mission designs. My goal is to make a mark in this exciting sector with impactful projects. I see my current analytical thinking, problem-solving, and rapid learning abilities as a foundation for bringing innovative solutions to future challenging engineering problems and pushing the boundaries of space technology. Graduating from Istanbul Technical University in Space Engineering in July 2025 signifies a new beginning where I am eager to turn this passion into a professional career and contribute to the projects of my dreams.">
+                    Uzay mühendisliğine olan derin tutkum, beni uydu sistemleri, itki teknolojileri ve yenilikçi görev tasarımları alanlarında sürekli öğrenmeye ve kendimi geliştirmeye itiyor. Hedefim, bu heyecan verici sektörde fark yaratan projelere imza atmaktır. Mevcut analitik düşünme, problem çözme ve hızlı öğrenme yeteneklerimi, gelecekteki zorlu mühendislik problemlerine yenilikçi çözümler getirmek ve uzay teknolojilerinin sınırlarını zorlamak için bir temel olarak görüyorum. İstanbul Teknik Üniversitesi Uzay Mühendisliği'nden Temmuz 2025'te mezun olacak olmam, bu tutkumu profesyonel bir kariyere dönüştürmek ve hayallerimdeki projelere katkıda bulunmak için sabırsızlandığım yeni bir başlangıç anlamına geliyor.
+                </p>
+                <div class="space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#projelerim" class="btn btn-primary text-lg" data-lang-tr="Projelerimi Keşfet" data-lang-en="Discover My Projects">Projelerimi Keşfet</a>
+                    <a href="https://github.com/fevziakargol/sayfam/blob/main/CV_2025.pdf" id="cv-indir-link" class="btn btn-secondary text-lg" target="_blank" rel="noopener noreferrer" data-lang-tr="CV'yi Görüntülemek İçin Tıklayınız" data-lang-en="Click to View CV">
+                        CV'yi Görüntülemek İçin Tıklayınız
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="hakkimda" class="yildizli-gokyuzu-bg py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title" data-lang-tr="Tutkum, Yeteneklerim ve Hedeflerim" data-lang-en="My Passion, Skills, and Goals">Tutkum, Yeteneklerim ve Hedeflerim</h2>
+                <div class="max-w-3xl mx-auto space-y-6 text-lg leading-relaxed text-content-on-starry">
+                    <p data-lang-tr="Kararlı, disiplinli ve çalışkan bir birey olarak, sahip olduğum değerler doğrultusunda kendimi sürekli geliştirmeye adadım. En büyük motivasyonum, uzay mühendisliği alanındaki karmaşık sorunlara yenilikçi ve etkili çözümler üreterek insanlığa hizmet etmektir. Hedef odaklı yaklaşımım ve pozitif bakış açım, bu yolda karşılaştığım zorlukların üstesinden gelmemde bana güç veriyor." data-lang-en="As a determined, disciplined, and hardworking individual, I am dedicated to continuous self-improvement in line with my values. My greatest motivation is to serve humanity by producing innovative and effective solutions to complex problems in the field of space engineering. My goal-oriented approach and positive outlook empower me to overcome the challenges I encounter on this path.">
+                        Kararlı, disiplinli ve çalışkan bir birey olarak, sahip olduğum değerler doğrultusunda kendimi sürekli geliştirmeye adadım. En büyük motivasyonum, uzay mühendisliği alanındaki karmaşık sorunlara yenilikçi ve etkili çözümler üreterek insanlığa hizmet etmektir. Hedef odaklı yaklaşımım ve pozitif bakış açım, bu yolda karşılaştığım zorlukların üstesinden gelmemde bana güç veriyor.
+                    </p>
+                    <p data-lang-tr="İTÜ Uzay Sistemleri Tasarım ve Test Laboratuvarı ile Deltav Uzay Teknolojileri'ndeki stajlarım, teorik bilgilerimi pratiğe dökme ve uydu sistemleri ile itki teknolojileri gibi alanlardaki tutkumu pekiştirme fırsatı sundu. Bu deneyimler, özellikle sistem entegrasyonu ve test süreçlerinin optimizasyonu konusundaki merakımı artırdı. AIAA Mars Misyonu Tasarımı yarışması ve Metal Yanması projesi gibi takım çalışmalarında yer almak, problem çözme ve işbirliği yeteneklerimi geliştirirken, görev analizi ve sistem mühendisliği alanındaki ufkumu genişletti." data-lang-en="My internships at ITU Space Systems Design and Test Laboratory and Deltav Space Technologies provided opportunities to apply my theoretical knowledge and reinforce my passion for satellite systems and propulsion technologies. These experiences particularly piqued my curiosity in system integration and test process optimization. Participating in team projects like the AIAA Mars Mission Design competition and the Metal Combustion project enhanced my problem-solving and collaboration skills while broadening my horizons in mission analysis and systems engineering.">
+                        İTÜ Uzay Sistemleri Tasarım ve Test Laboratuvarı ile Deltav Uzay Teknolojileri'ndeki stajlarım, teorik bilgilerimi pratiğe dökme ve uydu sistemleri ile itki teknolojileri gibi alanlardaki tutkumu pekiştirme fırsatı sundu. Bu deneyimler, özellikle sistem entegrasyonu ve test süreçlerinin optimizasyonu konusundaki merakımı artırdı. AIAA Mars Misyonu Tasarımı yarışması ve Metal Yanması projesi gibi takım çalışmalarında yer almak, problem çözme ve işbirliği yeteneklerimi geliştirirken, görev analizi ve sistem mühendisliği alanındaki ufkumu genişletti.
+                    </p>
+                    <p data-lang-tr="Uzay araçları sistem tasarımı konusundaki mevcut bilgimi ve yeteneklerimi daha da ileriye taşımak en büyük arzum. Özellikle [Uzmanlaşmak İstediğiniz 1-2 Alan, örneğin: 'gelişmiş itki sistemleri' ve 'gezegenlerarası görevler için yörünge optimizasyonu'] konularında derinlemesine çalışmalar yapmayı ve bu alanlarda yenilikçi çözümler geliştirmeyi hedefliyorum. Bu doğrultuda, okulda aldığım seçmeli ve yüksek lisans seviyesindeki derslerin yanı sıra sürekli öğrenme ve araştırma yaparak kendimi geliştiriyor; okuldan, çevremden ve edindiğim tüm deneyimlerden maksimum verimle faydalanmaya çalışıyorum." 
+                       data-lang-en="My greatest desire is to further advance my current knowledge and skills in spacecraft system design. I aim to conduct in-depth studies and develop innovative solutions, particularly in areas such as [1-2 Areas you want to specialize in, e.g., 'advanced propulsion systems' and 'orbital optimization for interplanetary missions']. In line with this, I am actively enhancing my knowledge by taking elective and graduate-level courses, engaging in continuous learning and research, and striving to benefit with maximum efficiency from my school, environment, and all acquired experiences.">
+                        Uzay araçları sistem tasarımı konusundaki mevcut bilgimi ve yeteneklerimi daha da ileriye taşımak en büyük arzum. Özellikle [Uzmanlaşmak İstediğiniz 1-2 Alan, örneğin: 'gelişmiş itki sistemleri' ve 'gezegenlerarası görevler için yörünge optimizasyonu'] konularında derinlemesine çalışmalar yapmayı ve bu alanlarda yenilikçi çözümler geliştirmeyi hedefliyorum. Bu doğrultuda, okulda aldığım seçmeli ve yüksek lisans seviyesindeki derslerin yanı sıra sürekli öğrenme ve araştırma yaparak kendimi geliştiriyor; okuldan, çevremden ve edindiğim tüm deneyimlerden maksimum verimle faydalanmaya çalışıyorum.
+                    </p>
+                    <div class="mt-8 p-6 hakkimda-highlight-box rounded-lg shadow-xl">
+                        <h3 class="text-xl font-semibold mb-3" data-lang-tr="Eğitim Bilgileri" data-lang-en="Education">Eğitim Bilgileri</h3>
+                        <p><strong data-lang-tr="Kurum:" data-lang-en="Institution:">Kurum:</strong> İstanbul Teknik Üniversitesi</p>
+                        <p><strong data-lang-tr="Bölüm:" data-lang-en="Department:">Bölüm:</strong> Uzay Mühendisliği Lisans Derecesi</p>
+                        <p><strong data-lang-tr="Mezuniyet Tarihi:" data-lang-en="Graduation Date:">Mezuniyet Tarihi:</strong> <span data-lang-tr="Temmuz 2025 (Beklenen)" data-lang-en="July 2025 (Expected)">Temmuz 2025 (Beklenen)</span></p>
+                        <h3 class="text-xl font-semibold mt-4 mb-3" data-lang-tr="Dil Becerileri" data-lang-en="Language Skills">Dil Becerileri</h3>
+                        <p data-lang-tr="İngilizce: B2 Seviyesi" data-lang-en="English: B2 Level">İngilizce: B2 Seviyesi</p>
+                        <p data-lang-tr="Arapça: B1 Seviyesi" data-lang-en="Arabic: B1 Level">Arapça: B1 Seviyesi</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="deneyimlerim" class="yildizli-gokyuzu-bg py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title" data-lang-tr="Deneyimlerim: Öğrenme ve Gelişim Fırsatları" data-lang-en="Experience: Learning and Development Opportunities">Deneyimlerim: Öğrenme ve Gelişim Fırsatları</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="content-card"> 
+                        <img src="https://raw.githubusercontent.com/fevziakargol/sayfam/main/buadambenimbabam.jpg" alt="İTÜ USET Laboratuvarı Stajı" class="card-image">
+                        <div class="card-content">
+                            <h3 class="text-2xl font-semibold mb-3" data-lang-tr="İTÜ Uzay Sistemleri Tasarım ve Test Laboratuvarı" data-lang-en="ITU Space Systems Design and Test Laboratory">İTÜ Uzay Sistemleri Tasarım ve Test Laboratuvarı</h3>
+                            <p class="text-sm text-slate-500 mb-2" data-lang-tr="Stajyer Mühendis (Temmuz 2024)" data-lang-en="Intern Engineer (July 2024)">Stajyer Mühendis (Temmuz 2024)</p>
+                            <p class="text-slate-700 leading-relaxed card-description" data-lang-tr="Bu stajda, özellikle RAFS adlı küp uydu projesi başta olmak üzere, küp uydu tasarımının ve üretim süreçlerinin inceliklerini deneyimledim. RAFS uydusunun tasarım ve dokümantasyon süreçlerine aktif katılım sağladım. Bu sayede sistem mimarisi ve gereksinim analizi konularındaki anlayışım pekişti; bu da gelecekte yenilikçi ve karmaşık uydu projelerinde etkin rol alma hedefime değerli bir katkı sağladı." data-lang-en="During this internship, I experienced the intricacies of cube satellite design and production processes, particularly focusing on the RAFS cube satellite project. I actively participated in the design and documentation processes of the RAFS satellite. This enhanced my understanding of system architecture and requirements analysis, significantly contributing to my goal of playing an active role in innovative and complex satellite projects in the future.">Bu stajda, özellikle RAFS adlı küp uydu projesi başta olmak üzere, küp uydu tasarımının ve üretim süreçlerinin inceliklerini deneyimledim. RAFS uydusunun tasarım ve dokümantasyon süreçlerine aktif katılım sağladım. Bu sayede sistem mimarisi ve gereksinim analizi konularındaki anlayışım pekişti; bu da gelecekte yenilikçi ve karmaşık uydu projelerinde etkin rol alma hedefime değerli bir katkı sağladı.</p>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <img src="https://raw.githubusercontent.com/fevziakargol/sayfam/main/deltav.jpg" alt="Deltav Uzay Teknolojileri Stajı" class="card-image">
+                        <div class="card-content">
+                            <h3 class="text-2xl font-semibold mb-3" data-lang-tr="Deltav Uzay Teknolojileri" data-lang-en="Deltav Space Technologies">Deltav Uzay Teknolojileri</h3>
+                            <p class="text-sm text-slate-500 mb-2" data-lang-tr="Stajyer Mühendis (Ağustos 2024)" data-lang-en="Intern Engineer (August 2024)">Stajyer Mühendis (Ağustos 2024)</p>
+                            <p class="text-slate-700 leading-relaxed card-description" data-lang-tr="Deltav Uzay Teknolojileri'nde uydu ve itki teknolojileri üzerine derinlemesine çalışmalar yaparak, özellikle AYAP (Ay Araştırma Programı) gibi birçok etkileyici projeye ve gerçek test süreçlerine tanık oldum. Bu deneyim, hibrit itki sistemleri ve uzay aracı malzemeleri gibi alanlardaki pratik bilgimi artırırken, gelecekte yenilikçi itki çözümleri geliştirme konusundaki hevesimi ve heyecanımı daha da pekiştirdi." data-lang-en="At Deltav Space Technologies, I conducted in-depth studies on satellite and propulsion technologies, witnessing many impressive projects like AYAP (Lunar Research Program) and actual test processes. This experience increased my practical knowledge in areas such as hybrid propulsion systems and spacecraft materials, further fueling my enthusiasm and excitement for developing innovative propulsion solutions in the future.">Deltav Uzay Teknolojileri'nde uydu ve itki teknolojileri üzerine derinlemesine çalışmalar yaparak, özellikle AYAP (Ay Araştırma Programı) gibi birçok etkileyici projeye ve gerçek test süreçlerine tanık oldum. Bu deneyim, hibrit itki sistemleri ve uzay aracı malzemeleri gibi alanlardaki pratik bilgimi artırırken, gelecekte yenilikçi itki çözümleri geliştirme konusundaki hevesimi ve heyecanımı daha da pekiştirdi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projelerim" class="yildizli-gokyuzu-bg py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 section-title" data-lang-tr="Projelerim: Tutkumu Şekillendiren Çalışmalar" data-lang-en="Projects: Works That Shaped My Passion">Projelerim: Tutkumu Şekillendiren Çalışmalar</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="content-card">
+                        <div class="card-content">
+                            <h3 class="text-xl font-semibold mb-2" data-lang-tr="Ay Transferi Hesaplamaları (2025)" data-lang-en="Lunar Transfer Calculations (2025)">Ay Transferi Hesaplamaları (2025)</h3>
+                            <div class="flex justify-around space-x-1 sm:space-x-2 my-3 small-project-images">
+                                <img src="https://raw.githubusercontent.com/fevziakargol/sayfam/main/ay_yakalama.PNG" alt="Ay Yakalama Simülasyonu" class="w-1/3 h-24 object-contain rounded">
+                                <img src="https://raw.githubusercontent.com/fevziakargol/sayfam/main/ayaini%C5%9F.PNG" alt="Ay'a İniş Simülasyonu" class="w-1/3 h-24 object-contain rounded">
+                                <img src="https://raw.githubusercontent.com/fevziakargol/sayfam/main/Kalk%C4%B1%C5%9F_yerden_y%C3%B6r%C3%BCngeye.PNG" alt="Yerden Yörüngeye Kalkış Simülasyonu" class="w-1/3 h-24 object-contain rounded">
+                            </div>
+                            <p class="text-sm leading-relaxed card-description max-h-28 overflow-hidden" data-lang-tr="Bu çalışmada, MATLAB kullanarak ve patched conic yaklaşımını esas alarak, Dünya park yörüngesinden Ay yüzeyine ve ardından tekrar Ay yörüngesine uzanan karmaşık bir görevin yörünge analizlerini ve simülasyonlarını başarıyla tamamladım. Bu süreçte Translunar Injection (TLI), Lunar Orbit Insertion (LOI), Ay'a yumuşak iniş ve tekrar kalkış gibi kritik manevraları detaylıca inceledim. Bu proje, uzay mühendisliği alanındaki hesaplama, yörünge mekaniği ve görev tasarımı becerilerimi birleştirme fırsatı sundu ve özellikle hesaplamalı yörünge tasarımı ile uzay görevi analizi konularındaki yetkinliğimi pekiştirmeme önemli bir katkı sağladı." data-lang-en="In this study, using MATLAB and based on the patched conic approach, I successfully completed the orbital analyses and simulations of a complex mission extending from Earth parking orbit to the lunar surface and then back to lunar orbit. During this process, I meticulously examined critical maneuvers such as Translunar Injection (TLI), Lunar Orbit Insertion (LOI), soft landing on the Moon, and subsequent ascent. This project provided an opportunity to combine my skills in calculation, orbital mechanics, and mission design in the field of space engineering, significantly contributing to strengthening my proficiency in computational orbit design and space mission analysis.">
+                                Bu çalışmada, MATLAB kullanarak ve patched conic yaklaşımını esas alarak, Dünya park yörüngesinden Ay yüzeyine ve ardından tekrar Ay yörüngesine uzanan karmaşık bir görevin yörünge analizlerini ve simülasyonlarını başarıyla tamamladım. Bu süreçte Translunar Injection (TLI), Lunar Orbit Insertion (LOI), Ay'a yumuşak iniş ve tekrar kalkış gibi kritik manevraları detaylıca inceledim. Bu proje, uzay mühendisliği alanındaki hesaplama, yörünge mekaniği ve görev tasarımı becerilerimi birleştirme fırsatı sundu ve özellikle hesaplamalı yörünge tasarımı ile uzay görevi analizi konularındaki yetkinliğimi pekiştirmeme önemli bir katkı sağladı.
+                            </p>
+                            <button onclick="toggleDescription(this)" class="text-indigo-600 hover:text-indigo-800 font-semibold text-sm mt-2 self-start" data-lang-tr="Daha Fazla Göster" data-lang-en="Show More">
+                                Daha Fazla Göster
+                            </button>
+                             <a href="https://github.com/fevziakargol/sayfam/blob/main/AHMET_FEVZ%C4%B0_AKARG%C3%96L.pdf" class="btn btn-outline mt-auto self-start" target="_blank" rel="noopener noreferrer" data-lang-tr="Raporu Görüntülemek İçin Tıklayınız" data-lang-en="Click to View Report">
+                                Raporu Görüntülemek İçin Tıklayınız
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <img src="https://raw.githubusercontent.com/fevziakargol/sayfam/main/AIAA%20Undergraduate%20Team%20Space%20Design%20Competition%20(2025)%20-%20MOCHA%20MISSION.png" alt="AIAA MOCHA MISSION Projesi" class="card-image">
+                        <div class="card-content">
+                            <h3 class="text-xl font-semibold mb-2" data-lang-tr="AIAA - MOCHA MISSION (2025)" data-lang-en="AIAA - MOCHA MISSION (2025)">AIAA - MOCHA MISSION (2025)</h3>
+                            <p class="text-sm leading-relaxed card-description max-h-28 overflow-hidden" data-lang-tr="İstanbul Teknik Üniversitesi'nden 10 kişilik bir lisans öğrencisi ekibi olarak katıldığımız bu AIAA yarışmasında, Mars'a yönelik gelecekteki insanlı keşif görevlerini destekleyecek bilimsel bir misyon konsepti geliştirdik. MOCHA (Mars Orbiting Constellation for Hemispheric & Atmospheric Characterization) adını verdiğimiz bu görev, bir ana yörünge aracı ve sekiz adet 6U CubeSat'ten oluşan dağıtık bir mimariye dayanmaktadır. Proje kapsamında; Görev ve Yörünge Analizi, Yapısal Analiz (Abaqus CAE), Alt Sistem Tasarımları (İtki, Güç, İletişim, Termal, ADCS) ve Bilimsel Enstrümantasyon gibi birçok detaylı çalışma yürütülmüştür. Bu proje, karmaşık bir uzay görevinin baştan sona tasarım süreçlerini deneyimleme, sistem mühendisliği prensiplerini uygulama ve farklı disiplinlerdeki mühendislik bilgilerini entegre etme konusunda bana paha biçilmez bir deneyim kazandırdı." data-lang-en="As a team of 10 undergraduate students from Istanbul Technical University, we participated in this AIAA competition to develop a scientific mission concept supporting future human exploration missions to Mars. Named MOCHA (Mars Orbiting Constellation for Hemispheric & Atmospheric Characterization), our mission is based on a distributed architecture consisting of a main orbiter and eight 6U CubeSats. The project involved detailed studies including Mission and Orbit Analysis, Structural Analysis (Abaqus CAE), Subsystem Designs (Propulsion, Power, Communication, Thermal, ADCS), and Scientific Instrumentation. This project provided me with invaluable experience in designing a complex space mission from start to finish, applying systems engineering principles, and integrating engineering knowledge from various disciplines.">
+                                İstanbul Teknik Üniversitesi'nden 10 kişilik bir lisans öğrencisi ekibi olarak katıldığımız bu AIAA yarışmasında, Mars'a yönelik gelecekteki insanlı keşif görevlerini destekleyecek bilimsel bir misyon konsepti geliştirdik. MOCHA (Mars Orbiting Constellation for Hemispheric & Atmospheric Characterization) adını verdiğimiz bu görev, bir ana yörünge aracı ve sekiz adet 6U CubeSat'ten oluşan dağıtık bir mimariye dayanmaktadır. Proje kapsamında; Görev ve Yörünge Analizi, Yapısal Analiz (Abaqus CAE), Alt Sistem Tasarımları (İtki, Güç, İletişim, Termal, ADCS) ve Bilimsel Enstrümantasyon gibi birçok detaylı çalışma yürütülmüştür. Bu proje, karmaşık bir uzay görevinin baştan sona tasarım süreçlerini deneyimleme, sistem mühendisliği prensiplerini uygulama ve farklı disiplinlerdeki mühendislik bilgilerini entegre etme konusunda bana paha biçilmez bir deneyim kazandırdı.
+                            </p>
+                            <button onclick="toggleDescription(this)" class="text-indigo-600 hover:text-indigo-800 font-semibold text-sm mt-2 self-start" data-lang-tr="Daha Fazla Göster" data-lang-en="Show More">
+                                Daha Fazla Göster
+                            </button>
+                            <a href="https://github.com/fevziakargol/sayfam/blob/main/MOCHA_AIAA_REPORT.pdf" class="btn btn-outline mt-auto self-start" target="_blank" rel="noopener noreferrer" data-lang-tr="Raporu Görüntülemek İçin Tıklayınız" data-lang-en="Click to View Report">
+                                Raporu Görüntülemek İçin Tıklayınız
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <img src="https://raw.githubusercontent.com/fevziakargol/sayfam/main/Metal%20Particle%20Combustion%20(2024-2025).png" alt="Metal Particle Combustion Projesi" class="card-image">
+                        <div class="card-content">
+                            <h3 class="text-xl font-semibold mb-2" data-lang-tr="Metal Particle Combustion (2024-2025)" data-lang-en="Metal Particle Combustion (2024-2025)">Metal Particle Combustion (2024-2025)</h3>
+                            <p class="text-sm leading-relaxed card-description max-h-28 overflow-hidden" data-lang-tr="6 kişilik bir takımda, metal yanmasının enerji ve itki sistemlerindeki potansiyelini araştırmak, özellikle sürdürülebilir uzay teknolojileri ve ISRU (Yerinde Kaynak Kullanımı) gibi geleceğin kritik alanlarına olan merakımı artırdı." data-lang-en="In a team of 6, researching the potential of metal combustion in energy and propulsion systems, particularly for sustainable space technologies and ISRU (In-Situ Resource Utilization), increased my curiosity in these critical future fields.">
+                                6 kişilik bir takımda, metal yanmasının enerji ve itki sistemlerindeki potansiyelini araştırmak, özellikle sürdürülebilir uzay teknolojileri ve ISRU (Yerinde Kaynak Kullanımı) gibi geleceğin kritik alanlarına olan merakımı artırdı.
+                            </p>
+                            <button onclick="toggleDescription(this)" class="text-indigo-600 hover:text-indigo-800 font-semibold text-sm mt-2 self-start" data-lang-tr="Daha Fazla Göster" data-lang-en="Show More">
+                                Daha Fazla Göster
+                            </button>
+                             <a href="https://github.com/fevziakargol/sayfam/blob/main/Combustion.pdf" class="btn btn-outline mt-auto self-start" target="_blank" rel="noopener noreferrer" data-lang-tr="Detayları Görüntülemek İçin Tıklayınız" data-lang-en="Click to View Details">
+                                Detayları Görüntülemek İçin Tıklayınız
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <img src="https://raw.githubusercontent.com/fevziakargol/sayfam/main/Bilgisayarl%C4%B1%20Aerodinamik%20(2025).png" alt="Bilgisayarlı Aerodinamik Projesi" class="card-image">
+                        <div class="card-content">
+                            <h3 class="text-xl font-semibold mb-2" data-lang-tr="Bilgisayarlı Aerodinamik (2025)" data-lang-en="Computational Aerodynamics (2025)">Bilgisayarlı Aerodinamik (2025)</h3>
+                            <p class="text-sm leading-relaxed card-description max-h-28 overflow-hidden" data-lang-tr="At nalı girdap modelini Python ile uygulayarak aerodinamik hesaplamalar yapmak, analitik ve programlama becerilerimi birleştirme imkanı tanıdı. Bu, hesaplamalı akışkanlar dinamiği alanındaki yetkinliğimi geliştirme hedefime katkı sağladı." data-lang-en="Implementing the horseshoe vortex model with Python to perform aerodynamic calculations provided an opportunity to combine my analytical and programming skills. This contributed to my goal of developing proficiency in computational fluid dynamics.">
+                                At nalı girdap modelini Python ile uygulayarak aerodinamik hesaplamalar yapmak, analitik ve programlama becerilerimi birleştirme imkanı tanıdı. Bu, hesaplamalı akışkanlar dinamiği alanındaki yetkinliğimi geliştirme hedefime katkı sağladı.
+                            </p>
+                            <button onclick="toggleDescription(this)" class="text-indigo-600 hover:text-indigo-800 font-semibold text-sm mt-2 self-start" data-lang-tr="Daha Fazla Göster" data-lang-en="Show More">
+                                Daha Fazla Göster
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <img src="https://raw.githubusercontent.com/fevziakargol/sayfam/main/E%C4%9Fik%20Dalgalar%20Analizi%20(2024)1.png" alt="Eğik Dalgalar Analizi Projesi" class="card-image">
+                        <div class="card-content">
+                            <h3 class="text-xl font-semibold mb-2" data-lang-tr="Eğik Dalgalar Analizi (2024)" data-lang-en="Oblique Shock Analysis (2024)">Eğik Dalgalar Analizi (2024)</h3>
+                            <p class="text-sm leading-relaxed card-description max-h-28 overflow-hidden" data-lang-tr="Ansys simülasyonları ile ses üstü akışları analiz etmek, karmaşık fiziksel olayları modelleme ve yorumlama yeteneğimi geliştirdi." data-lang-en="Analyzing supersonic flows with Ansys simulations improved my ability to model and interpret complex physical phenomena.">
+                                Ansys simülasyonları ile ses üstü akışları analiz etmek, karmaşık fiziksel olayları modelleme ve yorumlama yeteneğimi geliştirdi.
+                            </p>
+                            <button onclick="toggleDescription(this)" class="text-indigo-600 hover:text-indigo-800 font-semibold text-sm mt-2 self-start" data-lang-tr="Daha Fazla Göster" data-lang-en="Show More">
+                                Daha Fazla Göster
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <img src="https://raw.githubusercontent.com/fevziakargol/sayfam/main/Orbital%20Mekanik%20Sim%C3%BClasyonlar%C4%B1%20(2023)g%C3%B6rsel.jpg" alt="Yörünge Mekaniği Simülasyonları Projesi" class="card-image">
+                        <div class="card-content">
+                            <h3 class="text-xl font-semibold mb-2" data-lang-tr="Yörünge Mekaniği Simülasyonları (2023)" data-lang-en="Orbital Mechanics Simulations (2023)">Yörünge Mekaniği Simülasyonları (2023)</h3>
+                            <p class="text-sm leading-relaxed card-description max-h-28 overflow-hidden" data-lang-tr="MATLAB kullanarak gezegenlerarası yörünge transferlerini simüle etmek, yörünge mekaniği konusundaki derin anlayışımı ve bu alandaki hesaplama araçlarını kullanma becerimi pekiştirdi." data-lang-en="Simulating interplanetary orbital transfers using MATLAB reinforced my deep understanding of orbital mechanics and my ability to use computational tools in this field.">
+                                MATLAB kullanarak gezegenlerarası yörünge transferlerini simüle etmek, yörünge mekaniği konusundaki derin anlayışımı ve bu alandaki hesaplama araçlarını kullanma becerimi pekiştirdi.
+                            </p>
+                            <button onclick="toggleDescription(this)" class="text-indigo-600 hover:text-indigo-800 font-semibold text-sm mt-2 self-start" data-lang-tr="Daha Fazla Göster" data-lang-en="Show More">
+                                Daha Fazla Göster
+                            </button>
+                            <a href="https://raw.githubusercontent.com/fevziakargol/sayfam/main/Orbital%20Mekanik%20Sim%C3%BClasyonlar%C4%B1%20(2023)kod.png" class="btn btn-outline mt-auto self-start" target="_blank" rel="noopener noreferrer" data-lang-tr="Kod Örneğini Görüntülemek İçin Tıklayınız" data-lang-en="Click to View Code Sample">Kod Örneğini Görüntülemek İçin Tıklayınız</a>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <img src="https://placehold.co/600x400/e0e7ff/312e81?text=Bitirme+Projesi" alt="Bitirme Projesi" class="card-image">
+                        <div class="card-content">
+                            <h3 class="text-xl font-semibold mb-2" data-lang-tr="Bitirme Projesi: CubeSat için Ay'a Transfer Yörünge Hesaplamaları (Devam Ediyor)" data-lang-en="Graduation Project: Lunar Transfer Orbit Calculations for CubeSat (Ongoing)">Bitirme Projesi: CubeSat için Ay'a Transfer Yörünge Hesaplamaları (Devam Ediyor)</h3>
+                            <p class="text-sm leading-relaxed card-description max-h-28 overflow-hidden" data-lang-tr="Bu proje, yörünge tasarımı ve analizi konusundaki uzmanlığımı derinleştirme ve küçük uydular için yenilikçi görev konseptleri geliştirme hedefime doğrudan hizmet ediyor." data-lang-en="This project directly serves my goal of deepening my expertise in orbit design and analysis and developing innovative mission concepts for small satellites.">
+                                Bu proje, yörünge tasarımı ve analizi konusundaki uzmanlığımı derinleştirme ve küçük uydular için yenilikçi görev konseptleri geliştirme hedefime doğrudan hizmet ediyor.
+                            </p>
+                            <button onclick="toggleDescription(this)" class="text-indigo-600 hover:text-indigo-800 font-semibold text-sm mt-2 self-start" data-lang-tr="Daha Fazla Göster" data-lang-en="Show More">
+                                Daha Fazla Göster
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <img src="https://placehold.co/600x400/e0e7ff/312e81?text=ADCS+Analizi" alt="ADCS Sistemleri Analizi" class="card-image">
+                        <div class="card-content">
+                            <h3 class="text-xl font-semibold mb-2" data-lang-tr="Yörünge ve Durum Belirleme ve Kontrol (ADCS) Sistemleri Analiz ve Simülasyonları" data-lang-en="Attitude Determination and Control (ADCS) Systems Analysis and Simulations">Yörünge ve Durum Belirleme ve Kontrol (ADCS) Sistemleri Analiz ve Simülasyonları</h3>
+                            <p class="text-sm leading-relaxed card-description max-h-28 overflow-hidden" data-lang-tr="Uydu durum dinamiği, sensör modelleme ve kontrol algoritmaları üzerine yaptığım bu kapsamlı analizler, ADCS sistemlerinin tasarımı ve optimizasyonu konusundaki yetkinliğimi artırdı ve bu alanda uzmanlaşma hedefimi destekledi." data-lang-en="These comprehensive analyses on satellite attitude dynamics, sensor modeling, and control algorithms have increased my proficiency in the design and optimization of ADCS systems and supported my goal of specializing in this field.">
+                               Uydu durum dinamiği, sensör modelleme ve kontrol algoritmaları üzerine yaptığım bu kapsamlı analizler, ADCS sistemlerinin tasarımı ve optimizasyonu konusundaki yetkinliğimi artırdı ve bu alanda uzmanlaşma hedefimi destekledi.
+                            </p>
+                            <button onclick="toggleDescription(this)" class="text-indigo-600 hover:text-indigo-800 font-semibold text-sm mt-2 self-start" data-lang-tr="Daha Fazla Göster" data-lang-en="Show More">
+                                Daha Fazla Göster
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                         <img src="https://placehold.co/600x400/e0e7ff/312e81?text=CubeSat+Tasar%C4%B1m" alt="CubeSat Tasarım Projesi" class="card-image">
+                        <div class="card-content">
+                            <h3 class="text-xl font-semibold mb-2" data-lang-tr="CubeSat Tasarım ve Uydu İletişimi (2021)" data-lang-en="CubeSat Design and Satellite Communication (2021)">CubeSat Tasarım ve Uydu İletişimi (2021)</h3>
+                            <p class="text-sm leading-relaxed card-description max-h-28 overflow-hidden" data-lang-tr="Erken dönem bir proje olmasına rağmen, bir uydu sisteminin temel bileşenlerini ve iletişim prensiplerini anlamama yardımcı oldu, takım içinde pratik mühendislik becerileri kazanmamı sağladı." data-lang-en="Although an early-stage project, it helped me understand the basic components of a satellite system and communication principles, and allowed me to gain practical engineering skills within a team.">
+                                Erken dönem bir proje olmasına rağmen, bir uydu sisteminin temel bileşenlerini ve iletişim prensiplerini anlamama yardımcı oldu, takım içinde pratik mühendislik becerileri kazanmamı sağladı.
+                            </p>
+                            <button onclick="toggleDescription(this)" class="text-indigo-600 hover:text-indigo-800 font-semibold text-sm mt-2 self-start" data-lang-tr="Daha Fazla Göster" data-lang-en="Show More">
+                                Daha Fazla Göster
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <img src="https://placehold.co/600x400/e0e7ff/312e81?text=Ke%C5%9Fif+Arac%C4%B1" alt="Uzay Keşif Araçları Simülasyonu" class="card-image">
+                        <div class="card-content">
+                            <h3 class="text-xl font-semibold mb-2" data-lang-tr="Uzay Keşif Araçları Simülasyonu (2021)" data-lang-en="Space Exploration Rover Simulation (2021)">Uzay Keşif Araçları Simülasyonu (2021)</h3>
+                            <p class="text-sm leading-relaxed card-description max-h-28 overflow-hidden" data-lang-tr="İTÜ Robotik Kulübü'ndeki bu çalışma, otonom sistemlere olan ilk ilgimi ateşledi ve simülasyon araçlarıyla pratik tasarım deneyimi kazandırdı." data-lang-en="This work at the ITU Robotics Club sparked my initial interest in autonomous systems and provided practical design experience with simulation tools.">
+                                İTÜ Robotik Kulübü'ndeki bu çalışma, otonom sistemlere olan ilk ilgimi ateşledi ve simülasyon araçlarıyla pratik tasarım deneyimi kazandırdı.
+                            </p>
+                            <button onclick="toggleDescription(this)" class="text-indigo-600 hover:text-indigo-800 font-semibold text-sm mt-2 self-start" data-lang-tr="Daha Fazla Göster" data-lang-en="Show More">
+                                Daha Fazla Göster
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="becerilerim" class="yildizli-gokyuzu-bg py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title" data-lang-tr="Güçlü Yönlerim ve Gelişim Alanlarım" data-lang-en="My Strengths and Areas for Development">Güçlü Yönlerim ve Gelişim Alanlarım</h2>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4 subsection-title" data-lang-tr="Kişisel Yeteneklerim" data-lang-en="Personal Skills">Kişisel Yeteneklerim</h3>
+                        <ul class="space-y-2 text-content-on-starry">
+                            <li class="flex items-center"><svg class="w-5 h-5 text-indigo-300 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg><span data-lang-tr="Hızlı Öğrenme ve Adaptasyon" data-lang-en="Quick Learning and Adaptation">Hızlı Öğrenme ve Adaptasyon</span></li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-indigo-300 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg><span data-lang-tr="Sonuç Odaklılık ve İş Bitiricilik" data-lang-en="Result-Oriented and Proactive">Sonuç Odaklılık ve İş Bitiricilik</span></li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-indigo-300 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg><span data-lang-tr="Girişimcilik Ruhu ve Atılganlık" data-lang-en="Entrepreneurial Spirit and Initiative">Girişimcilik Ruhu ve Atılganlık</span></li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-indigo-300 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg><span data-lang-tr="Yenilikçi Düşünme ve Pozitif Bakış Açısı" data-lang-en="Innovative Thinking and Positive Outlook">Yenilikçi Düşünme ve Pozitif Bakış Açısı</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4 subsection-title" data-lang-tr="Teknik Beceriler (Yazılım & Araçlar)" data-lang-en="Technical Skills (Software & Tools)">Teknik Beceriler (Yazılım & Araçlar)</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag py-1 px-3 rounded-full text-sm font-medium">Python (İleri Orta)</span>
+                            <span class="skill-tag py-1 px-3 rounded-full text-sm font-medium">MATLAB & Simulink (İleri Orta)</span>
+                            <span class="skill-tag py-1 px-3 rounded-full text-sm font-medium">STK (İleri Düzey)</span>
+                            <span class="skill-tag py-1 px-3 rounded-full text-sm font-medium">Catia (Orta Düzey)</span>
+                            <span class="skill-tag py-1 px-3 rounded-full text-sm font-medium">Ansys Fluent (Orta Düzey)</span>
+                            <span class="skill-tag py-1 px-3 rounded-full text-sm font-medium">Abaqus CAE</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-10">
+                    <h3 class="text-2xl font-semibold mb-4 subsection-title" data-lang-tr="Mühendislik Yetkinliklerim" data-lang-en="Engineering Competencies">Mühendislik Yetkinliklerim</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag py-1 px-3 rounded-full text-sm font-medium" data-lang-tr="Uydu Sistem Tasarımı" data-lang-en="Satellite System Design">Uydu Sistem Tasarımı</span>
+                        <span class="skill-tag py-1 px-3 rounded-full text-sm font-medium" data-lang-tr="İtki Sistemleri" data-lang-en="Propulsion Systems">İtki Sistemleri</span>
+                        <span class="skill-tag py-1 px-3 rounded-full text-sm font-medium" data-lang-tr="Yörünge Mekaniği & Görev Analizi" data-lang-en="Orbital Mechanics & Mission Analysis">Yörünge Mekaniği & Görev Analizi</span>
+                        <span class="skill-tag py-1 px-3 rounded-full text-sm font-medium" data-lang-tr="ADCS Sistemleri" data-lang-en="ADCS Systems">ADCS Sistemleri</span>
+                        <span class="skill-tag py-1 px-3 rounded-full text-sm font-medium" data-lang-tr="Yapısal Analiz (FEM)" data-lang-en="Structural Analysis (FEM)">Yapısal Analiz (FEM)</span>
+                        <span class="skill-tag py-1 px-3 rounded-full text-sm font-medium" data-lang-tr="Aerodinamik" data-lang-en="Aerodynamics">Aerodinamik</span>
+                        <span class="skill-tag py-1 px-3 rounded-full text-sm font-medium" data-lang-tr="Sistem Mühendisliği" data-lang-en="Systems Engineering">Sistem Mühendisliği</span>
+                        <span class="skill-tag py-1 px-3 rounded-full text-sm font-medium" data-lang-tr="Simülasyon & Modelleme" data-lang-en="Simulation & Modeling">Simülasyon & Modelleme</span>
+                        <span class="skill-tag py-1 px-3 rounded-full text-sm font-medium" data-lang-tr="Teknik Dokümantasyon" data-lang-en="Technical Documentation">Teknik Dokümantasyon</span>
+                        <span class="skill-tag py-1 px-3 rounded-full text-sm font-medium" data-lang-tr="Problem Çözme" data-lang-en="Problem Solving">Problem Çözme</span>
+                        <span class="skill-tag py-1 px-3 rounded-full text-sm font-medium" data-lang-tr="Takım Çalışması" data-lang-en="Teamwork">Takım Çalışması</span>
+                    </div>
+                </div>
+                 <div class="mt-10">
+                    <h3 class="text-2xl font-semibold mb-4 subsection-title" data-lang-tr="Geliştirmeyi Hedeflediğim Beceriler ve Alanlar" data-lang-en="Skills and Areas I Aim to Develop">Geliştirmeyi Hedeflediğim Beceriler ve Alanlar</h3>
+                    <ul class="list-disc list-inside space-y-2 text-content-on-starry">
+                        <li data-lang-tr="İleri Makine Öğrenmesi Uygulamaları" data-lang-en="Advanced Machine Learning Applications">İleri Makine Öğrenmesi Uygulamaları</li>
+                        <li data-lang-tr="Otonom Uzay Sistemleri Mimarisi" data-lang-en="Autonomous Space Systems Architecture">Otonom Uzay Sistemleri Mimarisi</li>
+                        <li data-lang-tr="Proje Yönetimi ve Liderlik" data-lang-en="Project Management and Leadership">Proje Yönetimi ve Liderlik</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="sertifikalarim" class="yildizli-gokyuzu-bg py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title" data-lang-tr="Sürekli Öğrenim Belgelerim" data-lang-en="My Continuous Learning Certificates">Sürekli Öğrenim Belgelerim</h2>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="content-card p-6 text-center">
+                        <div class="certification-title-container">
+                            <h3 class="text-xl font-semibold" data-lang-tr="Simulink and MATLAB" data-lang-en="Simulink and MATLAB">Simulink and MATLAB</h3>
+                            <img src="https://raw.githubusercontent.com/fevziakargol/sayfam/main/matlab_simge.jpeg" alt="MATLAB Simgesi" class="cert-symbol">
+                        </div>
+                        <a href="https://github.com/fevziakargol/sayfam/blob/main/certificate.pdf" class="btn btn-outline mt-auto" target="_blank" rel="noopener noreferrer" data-lang-tr="Sertifikayı Görüntülemek İçin Tıklayınız" data-lang-en="Click to View Certificate">
+                            Sertifikayı Görüntülemek İçin Tıklayınız
+                        </a>
+                    </div>
+                    <div class="content-card p-6 text-center">
+                        <div class="certification-title-container">
+                            <h3 class="text-xl font-semibold" data-lang-tr="Ansys STK (Level 1 & Master)" data-lang-en="Ansys STK (Level 1 & Master)">Ansys STK (Level 1 & Master)</h3>
+                            <img src="https://raw.githubusercontent.com/fevziakargol/sayfam/main/stksybol.png" alt="STK Simgesi" class="cert-symbol">
+                        </div>
+                        <a href="https://github.com/fevziakargol/sayfam/blob/main/Ahmet-Fevzi-Akargol-STKCertification_L1.pdf" class="btn btn-outline mt-2" target="_blank" rel="noopener noreferrer" data-lang-tr="L1 Sertifikasını Görüntülemek İçin Tıklayınız" data-lang-en="Click to View L1 Certificate">
+                            L1 Sertifikasını Görüntülemek İçin Tıklayınız
+                        </a>
+                        <a href="https://github.com/fevziakargol/sayfam/blob/main/Ahmet-Fevzi-akarg%C3%B6l-Level-2--STK-Master-Certification-Test.pdf" class="btn btn-outline mt-2" target="_blank" rel="noopener noreferrer" data-lang-tr="Master Sertifikasını Görüntülemek İçin Tıklayınız" data-lang-en="Click to View Master Certificate">
+                            Master Sertifikasını Görüntülemek İçin Tıklayınız
+                        </a>
+                    </div>
+                    <div class="content-card p-6 text-center">
+                        <div class="certification-title-container">
+                            <h3 class="text-xl font-semibold">Learning How to Learn (Coursera)</h3>
+                            <img src="https://raw.githubusercontent.com/fevziakargol/sayfam/main/coursera_symbol.png" alt="Coursera Simgesi" class="cert-symbol">
+                        </div>
+                        <a href="https://github.com/fevziakargol/sayfam/blob/main/Coursera%202HBT8BZYMQ6Q.pdf" class="btn btn-outline mt-auto" target="_blank" rel="noopener noreferrer" data-lang-tr="Sertifikayı Görüntülemek İçin Tıklayınız" data-lang-en="Click to View Certificate">
+                            Sertifikayı Görüntülemek İçin Tıklayınız
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="iletisim" class="yildizli-gokyuzu-bg py-16 md:py-24">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 section-title" data-lang-tr="Bağlantı Kuralım ve Geleceği Şekillendirelim" data-lang-en="Let's Connect and Shape the Future">Bağlantı Kuralım ve Geleceği Şekillendirelim</h2>
+                <p class="max-w-xl mx-auto text-lg leading-relaxed mb-10 text-content-on-starry" data-lang-tr="Uzay teknolojilerine olan tutkumu ve projelerimi konuşmak, fikir alışverişinde bulunmak veya aklınızdaki sorular için benimle her zaman iletişime geçebilirsiniz. Yeni şeyler öğrenmeye ve farklı bakış açıları kazanmaya her zaman açığım!" data-lang-en="Feel free to contact me to discuss my passion for space technologies and my projects, to exchange ideas, or for any questions you may have. I am always open to learning new things and gaining different perspectives!">
+                    Uzay teknolojilerine olan tutkumu ve projelerimi konuşmak, fikir alışverişinde bulunmak veya aklınızdaki sorular için benimle her zaman iletişime geçebilirsiniz. Yeni şeyler öğrenmeye ve farklı bakış açıları kazanmaya her zaman açığım!
+                </p>
+                <div class="flex justify-center items-center space-x-6 text-3xl">
+                    <a href="mailto:akargol20@itu.edu.tr" class="contact-icon" title="E-posta">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ahmetfevziakargol" target="_blank" rel="noopener noreferrer" class="contact-icon" title="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                    </div>
+                <p class="mt-8 text-content-on-starry" data-lang-tr="Telefon: +90 552 644 78 38" data-lang-en="Phone: +90 552 644 78 38">Telefon: +90 552 644 78 38</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-800 text-slate-400 py-8 text-center">
+        <div class="container mx-auto px-6">
+            <p data-lang-tr="© 2025 Ahmet Fevzi Akargöl. Tüm hakları saklıdır." data-lang-en="© 2025 Ahmet Fevzi Akargöl. All rights reserved.">&copy; 2025 Ahmet Fevzi Akargöl. Tüm hakları saklıdır.</p>
+            </div>
+    </footer>
+
+    <script>
+        // Mobil menü toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Navigasyon linklerine tıklandığında mobil menüyü kapat
+        document.querySelectorAll('#mobile-menu a, header nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (link.closest('#mobile-menu')) { 
+                    mobileMenu.classList.add('hidden');
+                }
+                const targetId = link.getAttribute('href');
+                if (targetId && targetId.startsWith('#') && targetId.length > 1) {
+                    const targetElement = document.getElementById(targetId.substring(1));
+                    if (targetElement) {
+                        // Smooth scroll zaten class="scroll-smooth" ile aktif
+                    }
+                }
+            });
+        });
+        
+        const sections = document.querySelectorAll('main section');
+        const navLinks = document.querySelectorAll('header nav a'); 
+        const mobileNavLinks = document.querySelectorAll('#mobile-menu a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) { 
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active', 'text-indigo-300', 'font-semibold');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active', 'text-indigo-300', 'font-semibold');
+                } else {
+                    link.classList.remove('text-indigo-300'); 
+                }
+            });
+            mobileNavLinks.forEach(link => {
+                link.classList.remove('bg-indigo-500', 'font-semibold');
+                 if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('bg-indigo-500', 'font-semibold');
+                }
+            });
+        });
+
+        // "Daha Fazla Göster" fonksiyonu
+        function toggleDescription(buttonElement) {
+            const descriptionElement = buttonElement.previousElementSibling; 
+
+            if (descriptionElement && descriptionElement.classList.contains('card-description')) {
+                descriptionElement.classList.toggle('max-h-28'); 
+                descriptionElement.classList.toggle('max-h-none'); 
+
+                const currentLang = document.documentElement.lang || 'tr';
+                if (descriptionElement.classList.contains('max-h-none')) {
+                    buttonElement.textContent = currentLang === 'en' ? 'Show Less' : 'Daha Az Göster';
+                } else {
+                    buttonElement.textContent = currentLang === 'en' ? 'Show More' : 'Daha Fazla Göster';
+                }
+            } else {
+                console.error("Açıklama elementi bulunamadı veya doğru sınıfa sahip değil.");
+            }
+        }
+
+        // Dil değiştirme fonksiyonu
+        function changeLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-lang-tr]').forEach(el => {
+                const englishText = el.dataset.langEn;
+                const turkishText = el.dataset.langTr; 
+
+                if (lang === 'en' && englishText) {
+                    el.innerHTML = englishText; 
+                } else {
+                    el.innerHTML = turkishText; 
+                }
+            });
+
+            document.querySelectorAll('.card-content button[onclick="toggleDescription(this)"]').forEach(button => {
+                const descriptionElement = button.previousElementSibling;
+                if (descriptionElement.classList.contains('max-h-none')) {
+                    button.textContent = lang === 'en' ? 'Show Less' : 'Daha Az Göster';
+                } else {
+                    button.textContent = lang === 'en' ? 'Show More' : 'Daha Fazla Göster';
+                }
+            });
+
+            document.getElementById('lang-tr').classList.toggle('bg-indigo-500', lang === 'tr');
+            document.getElementById('lang-tr').classList.toggle('hover:bg-indigo-400', lang !== 'tr'); 
+            document.getElementById('lang-en').classList.toggle('bg-indigo-500', lang === 'en');
+            document.getElementById('lang-en').classList.toggle('hover:bg-indigo-400', lang !== 'en'); 
+
+
+            document.getElementById('mobile-lang-tr').classList.toggle('bg-indigo-500', lang === 'tr');
+            document.getElementById('mobile-lang-tr').classList.toggle('hover:bg-indigo-400', lang !== 'tr');
+            document.getElementById('mobile-lang-en').classList.toggle('bg-indigo-500', lang === 'en');
+            document.getElementById('mobile-lang-en').classList.toggle('hover:bg-indigo-400', lang !== 'en');
+        }
+
+        document.getElementById('lang-en').addEventListener('click', () => changeLanguage('en'));
+        document.getElementById('lang-tr').addEventListener('click', () => changeLanguage('tr'));
+        document.getElementById('mobile-lang-en').addEventListener('click', () => { mobileMenu.classList.add('hidden'); changeLanguage('en'); });
+        document.getElementById('mobile-lang-tr').addEventListener('click', () => { mobileMenu.classList.add('hidden'); changeLanguage('tr'); });
+        
+        document.addEventListener('DOMContentLoaded', (event) => {
+            changeLanguage('en'); 
+        });
+
+    </script>
+</body>
+</html>
