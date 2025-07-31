@@ -143,6 +143,7 @@
             align-items: center;
             justify-content: center; /* Center the title and icon */
             margin-bottom: 0.5rem; /* mb-2 */
+            min-height: 3rem; /* Ensure consistent height */
         }
         .certification-title-container .cert-symbol { /* New class for certificate icons */
             height: 1.5rem; /* h-6 */
@@ -254,6 +255,10 @@
         </div>
     </header>
 
+    <div class="bg-gradient-to-r from-green-400 to-blue-500 text-white text-center p-2 font-bold text-lg animate-pulse">
+        <span data-lang-tr="AKTİF OLARAK İŞ ARAMAKTAYIM" data-lang-en="ACTIVELY LOOKING FOR A JOB">AKTİF OLARAK İŞ ARAMAKTAYIM</span>
+    </div>
+
     <main>
         <section id="anasayfa" class="hero-section-with-bg text-white py-32 md:py-48 min-h-screen flex items-center justify-center">
             <div class="hero-overlay"></div>
@@ -267,8 +272,11 @@
                 </p>
                 <div class="space-y-4 sm:space-y-0 sm:space-x-4">
                     <a href="#projelerim" class="btn btn-primary text-lg" data-lang-tr="Projelerimi Keşfet" data-lang-en="Discover My Projects">Projelerimi Keşfet</a>
-                    <a href="CV_2025.pdf" id="cv-indir-link" class="btn btn-secondary text-lg" target="_blank" rel="noopener noreferrer" data-lang-tr="CV'yi Görüntülemek İçin Tıklayınız" data-lang-en="Click to View CV">
-                        CV'yi Görüntülemek İçin Tıklayınız
+                    <a href="CV_EN_2025.pdf" class="btn btn-secondary text-lg" target="_blank" rel="noopener noreferrer" data-lang-tr="İngilizce CV" data-lang-en="English CV">
+                        English CV
+                    </a>
+                     <a href="Ahmet Fevzi Akargöl türkçe (1).pdf" class="btn btn-secondary text-lg" target="_blank" rel="noopener noreferrer" data-lang-tr="Türkçe CV" data-lang-en="Turkish CV">
+                        Turkish CV
                     </a>
                 </div>
             </div>
@@ -295,8 +303,13 @@
                         <p><strong data-lang-tr="Bölüm:" data-lang-en="Department:">Bölüm:</strong> <span data-lang-tr="Uzay Mühendisliği Lisans Derecesi" data-lang-en="Astronautical Engineering Bachelor's Degree">Uzay Mühendisliği Lisans Derecesi</span></p>
                         <p><strong data-lang-tr="Mezuniyet:" data-lang-en="Graduation:">Mezuniyet:</strong> <span data-lang-tr="Mezun (3.1/4 GPA)" data-lang-en="Graduated (3.1/4 GPA)">Mezun (3.1/4 GPA)</span></p>
                         <h3 class="text-xl font-semibold mt-4 mb-3" data-lang-tr="Dil Becerileri" data-lang-en="Language Skills">Dil Becerileri</h3>
-                        <p data-lang-tr="İngilizce: B2 Seviyesi" data-lang-en="English: C1 Level">İngilizce: C1 Seviyesi</p>
-                        <p data-lang-tr="Arapça: B1 Seviyesi" data-lang-en="Arabic: A2 Level">Arapça: A2 Seviyesi</p>
+                        <p data-lang-tr="İngilizce: C1 Seviyesi" data-lang-en="English: C1 Level">İngilizce: C1 Seviyesi</p>
+                        <p data-lang-tr="Arapça: A2 Seviyesi" data-lang-en="Arabic: A2 Level">Arapça: A2 Seviyesi</p>
+                    </div>
+                     <div class="mt-8 p-6 hakkimda-highlight-box rounded-lg shadow-xl">
+                        <h3 class="text-xl font-semibold mb-3" data-lang-tr="Gönüllü Deneyim" data-lang-en="Volunteer Experience">Gönüllü Deneyim</h3>
+                        <p><strong data-lang-tr="Kurum:" data-lang-en="Institution:">Institution:</strong> <span data-lang-tr="İTÜ Uzay Sistemleri Tasarım ve Test Laboratuvarı (Halen devam etmekte)" data-lang-en="ITU Space Systems Design and Test Laboratory (Currently)">ITU Space Systems Design and Test Laboratory (Currently)</span></p>
+                        <p data-lang-tr="Pek çok uydunun üretildiği bu laboratuvarda, deneyim kazanmaya çalışıyor, teorik bilgilerimi olabildiğince pratiğe dökerek kendimi geliştiriyorum." data-lang-en="I am currently gaining experience in this laboratory where many satellites are produced, developing myself by putting my theoretical knowledge into practice as much as possible.">Pek çok uydunun üretildiği bu laboratuvarda, deneyim kazanmaya çalışıyor, teorik bilgilerimi olabildiğince pratiğe dökerek kendimi geliştiriyorum.</p>
                     </div>
                 </div>
             </div>
@@ -518,15 +531,15 @@
 
         <section id="sertifikalarim" class="yildizli-gokyuzu-bg py-16 md:py-24">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title" data-lang-tr="Sürekli Öğrenim Belgelerim" data-lang-en="My Continuous Learning Certificates">Sürekli Öğrenim Belgelerim</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title" data-lang-tr="Sertifikalar ve Kurslar" data-lang-en="Certificates and Courses">Sertifikalar ve Kurslar</h2>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="content-card p-6 text-center">
                         <div class="certification-title-container">
                             <h3 class="text-xl font-semibold" data-lang-tr="Simulink and MATLAB" data-lang-en="Simulink and MATLAB">Simulink and MATLAB</h3>
                             <img src="certifications/matlab_simge.jpeg" alt="MATLAB Simgesi" class="cert-symbol">
                         </div>
-                        <a href="certifications/certificate.pdf" class="btn btn-outline mt-auto" target="_blank" rel="noopener noreferrer" data-lang-tr="Sertifikayı Görüntülemek İçin Tıklayınız" data-lang-en="Click to View Certificate">
-                            Sertifikayı Görüntülemek İçin Tıklayınız
+                        <a href="certifications/certificate.pdf" class="btn btn-outline mt-auto" target="_blank" rel="noopener noreferrer" data-lang-tr="Sertifikayı Görüntüle" data-lang-en="View Certificate">
+                            Sertifikayı Görüntüle
                         </a>
                     </div>
                     <div class="content-card p-6 text-center">
@@ -534,20 +547,47 @@
                             <h3 class="text-xl font-semibold" data-lang-tr="Ansys STK (Level 1 & Master)" data-lang-en="Ansys STK (Level 1 & Master)">Ansys STK (Level 1 & Master)</h3>
                             <img src="certifications/stksybol.png" alt="STK Simgesi" class="cert-symbol">
                         </div>
-                        <a href="certifications/Ahmet-Fevzi-Akargol-STKCertification_L1.pdf" class="btn btn-outline mt-2" target="_blank" rel="noopener noreferrer" data-lang-tr="L1 Sertifikasını Görüntülemek İçin Tıklayınız" data-lang-en="Click to View L1 Certificate">
-                            L1 Sertifikasını Görüntülemek İçin Tıklayınız
+                        <a href="certifications/Ahmet-Fevzi-Akargol-STKCertification_L1.pdf" class="btn btn-outline mt-2" target="_blank" rel="noopener noreferrer" data-lang-tr="L1 Sertifikasını Görüntüle" data-lang-en="View L1 Certificate">
+                            L1 Sertifikasını Görüntüle
                         </a>
-                        <a href="certifications/Ahmet-Fevzi-akargöl-Level-2--STK-Master-Certification-Test.pdf" class="btn btn-outline mt-2" target="_blank" rel="noopener noreferrer" data-lang-tr="Master Sertifikasını Görüntülemek İçin Tıklayınız" data-lang-en="Click to View Master Certificate">
-                            Master Sertifikasını Görüntülemek İçin Tıklayınız
+                        <a href="certifications/Ahmet-Fevzi-akargöl-Level-2--STK-Master-Certification-Test.pdf" class="btn btn-outline mt-2" target="_blank" rel="noopener noreferrer" data-lang-tr="Master Sertifikasını Görüntüle" data-lang-en="View Master Certificate">
+                            Master Sertifikasını Görüntüle
                         </a>
                     </div>
                     <div class="content-card p-6 text-center">
                         <div class="certification-title-container">
                             <h3 class="text-xl font-semibold">Learning How to Learn (Coursera)</h3>
-                            <img src="coursera_symbol.pngcertifications/coursera_symbol.png" alt="Coursera Simgesi" class="cert-symbol">
+                            <img src="coursera_symbol.pngcertifications/coursera_symbol.png" alt="Coursera Simgesi" class="cert-symbol"  onerror="this.onerror=null;this.src='https://placehold.co/40x40/e0e7ff/312e81?text=C';">
                         </div>
-                        <a href="certifications/Coursera 2HBT8BZYMQ6Q.pdf" class="btn btn-outline mt-auto" target="_blank" rel="noopener noreferrer" data-lang-tr="Sertifikayı Görüntülemek İçin Tıklayınız" data-lang-en="Click to View Certificate">
-                            Sertifikayı Görüntülemek İçin Tıklayınız
+                        <a href="certifications/Coursera 2HBT8BZYMQ6Q.pdf" class="btn btn-outline mt-auto" target="_blank" rel="noopener noreferrer" data-lang-tr="Sertifikayı Görüntüle" data-lang-en="View Certificate">
+                            Sertifikayı Görüntüle
+                        </a>
+                    </div>
+                    <div class="content-card p-6 text-center">
+                        <div class="certification-title-container">
+                            <h3 class="text-xl font-semibold" data-lang-tr="SSB (Savunma Sanayii Başkanlığı) - Kampüs" data-lang-en="SSB (Presidency of Defence Industries) - Campus">SSB (Savunma Sanayii Başkanlığı) - Kampüs</h3>
+                             <img src="https://placehold.co/40x40/ffffff/1e293b?text=SSB" alt="SSB Simgesi" class="cert-symbol">
+                        </div>
+                        <a href="ssb_kampus.pdf" class="btn btn-outline mt-auto" target="_blank" rel="noopener noreferrer" data-lang-tr="Sertifikayı Görüntüle" data-lang-en="View Certificate">
+                            Sertifikayı Görüntüle
+                        </a>
+                    </div>
+                     <div class="content-card p-6 text-center">
+                        <div class="certification-title-container">
+                            <h3 class="text-xl font-semibold" data-lang-tr="SSB (Savunma Sanayii Başkanlığı) - Kariyer ve Yetkinlik Buluşmaları" data-lang-en="SSB (Presidency of Defence Industries) - Career and Competency Meetings">SSB (Savunma Sanayii Başkanlığı) - Kariyer ve Yetkinlik Buluşmaları</h3>
+                             <img src="https://placehold.co/40x40/ffffff/1e293b?text=SSB" alt="SSB Simgesi" class="cert-symbol">
+                        </div>
+                        <a href="ssb_kariyer.pdf" class="btn btn-outline mt-auto" target="_blank" rel="noopener noreferrer" data-lang-tr="Sertifikayı Görüntüle" data-lang-en="View Certificate">
+                            Sertifikayı Görüntüle
+                        </a>
+                    </div>
+                     <div class="content-card p-6 text-center">
+                        <div class="certification-title-container">
+                            <h3 class="text-xl font-semibold" data-lang-tr="TUSAŞ - LIFT UP" data-lang-en="TUSAŞ - LIFT UP">TUSAŞ - LIFT UP</h3>
+                             <img src="https://placehold.co/40x40/ffffff/1e293b?text=TUSAŞ" alt="TUSAŞ Simgesi" class="cert-symbol">
+                        </div>
+                        <a href="tusaş.pdf" class="btn btn-outline mt-auto" target="_blank" rel="noopener noreferrer" data-lang-tr="Sertifikayı Görüntüle" data-lang-en="View Certificate">
+                            Sertifikayı Görüntüle
                         </a>
                     </div>
                 </div>
